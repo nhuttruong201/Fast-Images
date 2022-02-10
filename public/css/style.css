@@ -27,12 +27,21 @@ a {
 
 .home-cover a,
 .home-cover span {
-    font-family: "Paytone One";
+    /* font-family: "Paytone One"; */
     color: #202020;
     letter-spacing: -2px;
-    font-size: 26px;
-    color: #f1ebe5;
-    text-shadow: 0 13.36px 8.896px #c4b59d, 0 -2px 1px #fff;
+    font-size: 24px;
+    /* color: #f1ebe5; */
+    color: #9face6;
+    /* text-shadow: 0 13.36px 8.896px #c4b59d, 0 -2px 1px #fff; */
+    text-shadow: 0 13.36px 8.896px #9face6, 0 -2px 1px #fff;
+    transition: 0.3s;
+}
+
+.home-cover a:hover,
+.home-cover span:hover {
+    color: #9face6;
+    text-shadow: 0 13.36px 8.896px #577284, 0 -2px 1px #9face6;
 }
 
 .box-search {
@@ -185,9 +194,15 @@ a {
     cursor: pointer;
 }
 
-/* TODO modal view detail */
+/* TODO modal */
 #img_view,
 #img_edit {
     width: 100%;
     height: auto;
+}
+#box_noti_modal_security,
+#box_noti_modal_backup,
+#box_noti_modal_share,
+#password {
+    display: none;
 }

@@ -1,14 +1,22 @@
 import express from "express";
 import webController from "../controllers/webController";
+import webMiddleware from "../middlewares/webMiddleware";
 
 const router = express.Router();
 
 let initWebRoute = (app) => {
-    router.get("/:code", webController.getViewPage);
-
     router.get("/", (req, res) => {
         res.redirect("/" + randomId(5));
     });
+
+    router.get("/:code", webMiddleware.checkPass, webController.getViewPage);
+    router.post("/:code", webController.handleCheckPass);
+
+    router.get(
+        "/share/:code",
+        webMiddleware.checkPass,
+        webController.getSharePage
+    );
 
     app.use("/", router);
 };

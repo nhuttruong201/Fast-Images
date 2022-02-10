@@ -1,6 +1,5 @@
+import { CollectionModel } from "../models/collection";
 import { ImageModel } from "../models/image";
-
-import webService from "../services/webService";
 
 let uploadImage = (code, title, url) => {
     return new Promise(async (resolve, reject) => {
@@ -69,8 +68,76 @@ let deleteImage = (_id) => {
     });
 };
 
+let updatePass = (code, currentPassword, newPassword) => {
+    return new Promise(async (resolve, reject) => {
+        await CollectionModel.updateOne(
+            {
+                code: code,
+                password: currentPassword,
+            },
+            {
+                password: newPassword,
+            }
+        )
+            .then((data) => {
+                console.log("Data from updatePass(): ", data);
+
+                if (data.modifiedCount === 0) {
+                    resolve({
+                        status: 404,
+                    });
+                    return;
+                }
+                resolve({
+                    status: 200,
+                });
+            })
+            .catch((err) => {
+                console.log("Err from deleteImage(): ", err);
+                resolve({
+                    status: 500,
+                });
+            });
+    });
+};
+
+let updateShareState = (code, password, state) => {
+    return new Promise(async (resolve, reject) => {
+        await CollectionModel.updateOne(
+            {
+                code: code,
+                password: password,
+            },
+            {
+                isShared: state,
+            }
+        )
+            .then((data) => {
+                console.log("Data from updateShareState(): ", data);
+
+                if (data.modifiedCount === 0) {
+                    resolve({
+                        status: 404,
+                    });
+                    return;
+                }
+                resolve({
+                    status: 200,
+                });
+            })
+            .catch((err) => {
+                console.log("Err from updateShareState(): ", err);
+                resolve({
+                    status: 500,
+                });
+            });
+    });
+};
+
 module.exports = {
     uploadImage,
     editImageTitle,
     deleteImage,
+    updatePass,
+    updateShareState,
 };

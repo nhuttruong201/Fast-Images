@@ -91,7 +91,60 @@ let getAllImagesByCode = (code) => {
     });
 };
 
+let checkPass = (code, password) => {
+    return new Promise(async (resolve, reject) => {
+        await CollectionModel.findOne({
+            code: code,
+            password: password,
+        })
+            .then((data) => {
+                console.log(data);
+                if (!data) {
+                    resolve({
+                        status: 200,
+                        result: false,
+                    });
+                    return;
+                }
+                resolve({
+                    status: 200,
+                    result: true,
+                });
+            })
+            .catch((err) => {
+                console.log("Err from checkPass(): ", err);
+                resolve({
+                    status: 500,
+                    result: null,
+                });
+            });
+    });
+};
+
+let getCollectionByCode = (code) => {
+    return new Promise(async (resolve, reject) => {
+        await CollectionModel.findOne({
+            code: code,
+        })
+            .then((data) => {
+                resolve({
+                    result: true,
+                    data: data,
+                });
+            })
+            .catch((err) => {
+                console.log("Err from getCollectionByCode(): ", err);
+                resolve({
+                    result: false,
+                    data: {},
+                });
+            });
+    });
+};
+
 module.exports = {
     createCollection,
     getAllImagesByCode,
+    checkPass,
+    getCollectionByCode,
 };

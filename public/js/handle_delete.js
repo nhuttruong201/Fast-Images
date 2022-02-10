@@ -6,7 +6,7 @@ $(document).ready(() => {
         let imageId = button.attr("data-id");
         let imageTitle = button.attr("data-title");
 
-        console.log(imageId, imageTitle);
+        // console.log(imageId, imageTitle);
 
         bootbox.confirm({
             title: "Bạn có chắc xoá?",
@@ -23,6 +23,9 @@ $(document).ready(() => {
             },
             callback: function (result) {
                 console.log("This was logged in the callback: " + result);
+                if (result) {
+                    handleDeleteImage(imageId);
+                }
             },
         });
     });

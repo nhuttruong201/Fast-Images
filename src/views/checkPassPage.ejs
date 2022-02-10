@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Image - <%- code %>
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- TODO Bootbox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+
+    <!-- TODO Icon bootstrap  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    <!-- TODO Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <!-- TODO Animation  -->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/daneden/animate.css/v3.1.0/animate.min.css'>
+    <script src='https://cdn.rawgit.com/matthieua/WOW/1.0.1/dist/wow.min.js'></script>
+    <script>new WOW().init();</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="modal fade" data-keyboard="false" data-backdrop="static" id="modal_check_pass">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <strong class="modal-title">
+                        <i class="fab fa-expeditedssl"></i>
+                        Bộ sưu tập được bảo mật
+                    </strong>
+                </div>
+                <form action="/<%- code %>" method="post">
+                    <div class="modal-body mx-3 my-2" style="overflow-x: hidden !important;">
+                        <div class="form-group">
+                            <label>Vui lòng nhập mật khẩu!</label>
+                            <input type="text" value="<%- code %>" name="code" hidden readonly>
+                            <input type="password" value="<%- password %>" name="password" id="pass_check" autofocus
+                                class="form-control mt-2" minlength="4" maxlength="20"
+                                placeholder="mật khẩu từ 4 - 20 kí tự" required>
+                        </div>
+
+                        <% if(message){ %>
+                            <div class="alert alert-danger alert-dismissible fade show mt-3 wow pulse" role="alert">
+                                <strong>
+                                    <i class="fas fa-sad-tear"></i>
+                                    <%- message %>
+                                </strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <%} %>
+
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-sm btn-primary" id="btn_submit_check_pass">
+                            <i class="fas fa-check"></i>
+                            Xác nhận mật khẩu
+                        </button>
+                        <a href="/" role="button" type="button" class="btn btn-sm btn-secondary">
+                            <i class="bi bi-images"></i>
+                            Bộ sưu tập khác
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(() => {
+            $('#modal_check_pass').modal('show');
+            setTimeout(() => {
+                $("#pass_check").focus();
+            }, 10);
+        })
+    </script>
+</body>
+
+</html>

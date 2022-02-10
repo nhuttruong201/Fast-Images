@@ -55,7 +55,7 @@
             <div class="box-search">
                 <div class="search-box">
                     <input type="text" id="current_code" value="<%- code %>" hidden readonly>
-                    <button class="btn-search"><i class="fas fa-search"></i></button>
+                    <button class="btn-search" id="btn_submit_code"><i class="fas fa-search"></i></button>
                     <input type="text" value="<%- code %>" id="code" class="input-search text-center"
                         placeholder="Nhập mã bộ sưu tập...">
                 </div>
@@ -68,11 +68,12 @@
             <i class="fas fa-plus-square"></i>
             Ảnh mới
         </button>
-        <button class="btn btn-sm btn-primary m-1">
+        <button class="btn btn-sm btn-primary m-1" data-toggle="modal" data-target="#modal_share">
             <i class="fas fa-share"></i>
             Chia sẻ
         </button>
-        <button class="btn btn-sm btn-secondary m-1">
+        <button class="btn btn-sm btn-secondary m-1" data-toggle="modal" data-target="#modal_security"
+            id="btn_toggle_security">
             <i class="fab fa-expeditedssl"></i>
             Bảo mật
         </button>
@@ -80,7 +81,7 @@
 
     <div class="container">
         <div class="main-container">
-            <% data.map(item=> { %>
+            <% images.map(item=> { %>
                 <div class="image-item">
                     <img src="<%- item.url %>" data-toggle="modal" data-target="#modal_view_detail"
                         data-title="<%- item.title %>" data-url="<%- item.url %>" class="img-thumb pointer">
@@ -111,6 +112,11 @@
         </div>
     </div>
 
+    <!-- TODO store data -->
+    <input type="text" id="load_content_clipboard" hidden>
+    <input type="text" id="current_pass" value="<%- password %>" readonly hidden>
+    <input type="text" id="share_state" value="<%- isShared %>" readonly hidden>
+
     <script>
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
@@ -134,13 +140,19 @@
         });
     </script>
 
+    <script src="/js/handle_init.js"></script>
+    <script src="/js/handle_noti.js"></script>
     <script src="/js/handle_view_detail.js"></script>
     <script src="/js/handle_edit.js"></script>
     <script src="/js/handle_delete.js"></script>
+    <script src="/js/handle_security.js"></script>
+    <script src="/js/handle_share.js"></script>
 
     <%- include("modals/modalUpload.ejs") %>
         <%- include("modals/modalViewDetail.ejs") %>
             <%- include("modals/modalEdit.ejs") %>
+                <%- include("modals/modalSecurity.ejs") %>
+                    <%- include("modals/modalShare.ejs") %>
 
 </body>
 

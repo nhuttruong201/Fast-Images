@@ -1,0 +1,50 @@
+<div class="modal fade" id="modal_security">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <strong class="modal-title">
+                    <i class="fab fa-expeditedssl"></i>
+                    Bảo mật
+                </strong>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body px-5">
+                <div class="text-black-80">
+                    <p class="text-justify">
+                        <i class="bi bi-info-circle text-info"></i>
+                        Khi đặt mật khẩu, bạn cần xác thực trước khi đi đến bộ sưu tập.
+                    </p>
+                    <p class="text-justify">
+                        <i class="bi bi-info-circle text-info"></i>
+                        Bảo mật sẽ có hiệu lực từ lần truy cập tiếp theo.
+                    </p>
+                </div>
+                <div class="custom-control custom-switch text-center">
+                    <input type="checkbox" class="custom-control-input" id="switch_toggle_pass">
+                    <label class="custom-control-label" for="switch_toggle_pass">Mật khẩu</label>
+                </div>
+
+                <div class="form-group mt-3">
+                    <input type="text" class="form-control mt-1" id="password" maxlength="20"
+                        placeholder="mật khẩu từ 4 - 20 kí tự">
+                </div>
+
+                <!-- TODO noti -->
+                <div class="alert alert-danger mt-2 font-weight-bolder" id="box_noti_modal_security">
+                    <span id="icon_noti_modal_security"></span>
+                    <span id="content_noti_modal_security"></span>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-sm btn-success" id="btn_update_pass">
+                    <i class="fas fa-wrench"></i>
+                    Cập nhật
+                </button>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">
+                    <i class="fas fa-times"></i>
+                    Đóng
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

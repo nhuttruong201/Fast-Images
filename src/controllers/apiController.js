@@ -31,8 +31,30 @@ let handleDeleteImage = async (req, res) => {
     });
 };
 
+let handleUpdatePass = async (req, res) => {
+    let { code, currentPassword, newPassword } = req.body;
+    let { status } = await apiService.updatePass(
+        code,
+        currentPassword,
+        newPassword
+    );
+    res.status(status).json({
+        status,
+    });
+};
+
+let handleUpdateShareState = async (req, res) => {
+    let { code, password, state } = req.body;
+    let { status } = await apiService.updateShareState(code, password, state);
+    res.status(status).json({
+        status,
+    });
+};
+
 module.exports = {
     handleUploadImage,
     handleEditImageTitle,
     handleDeleteImage,
+    handleUpdatePass,
+    handleUpdateShareState,
 };
