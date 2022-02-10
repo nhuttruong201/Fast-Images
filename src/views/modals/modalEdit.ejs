@@ -1,0 +1,44 @@
+<div class="modal fade" id="modal_edit">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <strong class="modal-title">
+                    <i class="bi bi-pencil-fill"></i>
+                    <span id="img_title_edit"></span>
+                </strong>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-5 mb-3">
+                            <img src="" id="img_edit">
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="form-group">
+                                <label>Tiêu đề hình ảnh</label>
+                                <textarea id="image_title_input" class="form-control"
+                                    placeholder="nhập tiêu đề hình ảnh..." aria-describedby="helpId"
+                                    rows="2"></textarea>
+
+                                <small id="helpId" class="text-muted">Khi tải lên tiêu đề sẽ được đặt ngẫu
+                                    nhiên.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <input type="text" id="image_edit_id" readonly hidden>
+                <button type="button" class="btn btn-sm btn-primary" id="btn_update">
+                    <i class="fas fa-magic"></i>
+                    Cập nhật hình ảnh
+                </button>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">
+                    <i class="fas fa-times"></i>
+                    Huỷ
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

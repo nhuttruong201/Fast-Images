@@ -28,6 +28,10 @@
     <script src='https://cdn.rawgit.com/matthieua/WOW/1.0.1/dist/wow.min.js'></script>
     <script>new WOW().init();</script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/search_box.css">
@@ -38,7 +42,7 @@
     <div class="container-fluid p-0">
         <div class="home-cover">
             <div class="float-left">
-                <a href="/" data-toggle="tooltip" title="Trang chủ" data-placement="right">
+                <a href="/" data-toggle="tooltip" title="Fast Image" data-placement="right">
                     Fast Image
                 </a>
             </div>
@@ -76,159 +80,41 @@
 
     <div class="container">
         <div class="main-container">
-            <div class="grid-column">
-                <% data.map((item, index)=> { %>
-                    <% if(index===0 || index===5 || index===10){ %>
-                        <div class="image-item">
-                            <a href="<%- item.url %>">
-                                <img src="<%- item.url %>">
-                            </a>
-                            <div class="image-name">
-                                <span>
-                                    <%- item.title %>
-                                </span>
-                            </div>
+            <% data.map(item=> { %>
+                <div class="image-item">
+                    <img src="<%- item.url %>" data-toggle="modal" data-target="#modal_view_detail"
+                        data-title="<%- item.title %>" data-url="<%- item.url %>" class="img-thumb pointer">
 
-                            <div class="item-controller">
-                                <button class="btn-view">
-                                    <i class="bi bi-eye-fill"></i>
-                                </button>
-                                <button class="btn-edit">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </button>
-                                <button class="btn-delete">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <% } %>
-                            <% }) %>
-            </div>
-            <div class="grid-column">
-                <% data.map((item, index)=> { %>
-                    <% if(index===1 || index===6 || index===11){ %>
-                        <div class="image-item">
-                            <a href="<%- item.url %>">
-                                <img src="<%- item.url %>">
-                            </a>
-                            <div class="image-name">
-                                <span>
-                                    <%- item.title %>
-                                </span>
-                            </div>
-                            <div class="item-controller">
-                                <button class="btn-view">
-                                    <i class="bi bi-eye-fill"></i>
-                                </button>
-                                <button class="btn-edit">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </button>
-                                <button class="btn-delete">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <% } %>
+                    <div class="image-name">
+                        <span>
+                            <%- item.title %>
+                        </span>
+                    </div>
 
-                            <% }) %>
-            </div>
-            <div class="grid-column">
-                <% data.map((item, index)=> { %>
-                    <% if(index===2 || index===7 || index===12){ %>
-                        <div class="image-item">
-                            <a href="<%- item.url %>">
-                                <img src="<%- item.url %>">
-                            </a>
-                            <div class="image-name">
-                                <span>
-                                    <%- item.title %>
-                                </span>
-                            </div>
-
-                            <div class="item-controller">
-                                <button class="btn-view">
-                                    <i class="bi bi-eye-fill"></i>
-                                </button>
-                                <button class="btn-edit">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </button>
-                                <button class="btn-delete">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <% } %>
-
-                            <% }) %>
-            </div>
-            <div class="grid-column">
-                <% data.map((item, index)=> { %>
-                    <% if(index===3 || index===8 || index===13){ %>
-                        <div class="image-item">
-                            <a href="<%- item.url %>">
-                                <img src="<%- item.url %>">
-
-                            </a>
-                            <div class="image-name">
-                                <span>
-                                    <%- item.title %>
-                                </span>
-                            </div>
-                            <div class="item-controller">
-                                <button class="btn-view">
-                                    <i class="bi bi-eye-fill"></i>
-                                </button>
-                                <button class="btn-edit">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </button>
-                                <button class="btn-delete">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <% } %>
-
-                            <% }) %>
-            </div>
-            <div class="grid-column">
-                <% data.map((item, index)=> { %>
-                    <% if(index===4 || index===9 || index===14){ %>
-                        <div class="image-item">
-                            <a href="<%- item.url %>">
-                                <img src="<%- item.url %>">
-
-                            </a>
-                            <div class="image-name">
-                                <span>
-                                    <%- item.title %>
-                                </span>
-                            </div>
-                            <div class="item-controller">
-                                <button class="btn-view">
-                                    <i class="bi bi-eye-fill"></i>
-                                </button>
-                                <button class="btn-edit">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </button>
-                                <button class="btn-delete">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <% } %>
-
-                            <% }) %>
-            </div>
+                    <div class="item-controller">
+                        <button class="btn-view" data-toggle="modal" data-target="#modal_view_detail"
+                            data-url="<%- item.url %>" data-title="<%- item.title %>">
+                            <i class="bi bi-eye-fill" data-url="<%- item.url %>" data-title="<%- item.title %>"></i>
+                        </button>
+                        <button class="btn-edit" data-toggle="modal" data-target="#modal_edit" data-id="<%- item._id %>"
+                            data-url="<%- item.url %>" data-title="<%- item.title %>">
+                            <i class="bi bi-pencil-fill" data-id="<%- item._id %>" data-url="<%- item.url %>"
+                                data-title="<%- item.title %>">
+                            </i>
+                        </button>
+                        <button class="btn-delete" data-id="<%- item._id %>" data-title="<%- item.title %>">
+                            <i class="fas fa-trash" data-id="<%- item._id %>" data-title="<%- item.title %>"></i>
+                        </button>
+                    </div>
+                </div>
+                <% }) %>
         </div>
     </div>
 
     <script>
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
-
-
         });
-
     </script>
 
     <script>
@@ -248,7 +134,13 @@
         });
     </script>
 
+    <script src="/js/handle_view_detail.js"></script>
+    <script src="/js/handle_edit.js"></script>
+    <script src="/js/handle_delete.js"></script>
+
     <%- include("modals/modalUpload.ejs") %>
+        <%- include("modals/modalViewDetail.ejs") %>
+            <%- include("modals/modalEdit.ejs") %>
 
 </body>
 

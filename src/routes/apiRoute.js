@@ -6,6 +6,8 @@ const router = express.Router();
 
 let initApiRoute = (app) => {
     router.post("/upload-image", apiController.handleUploadImage);
+    router.post("/edit-image-title", apiController.handleEditImageTitle);
+    router.post("/delete-image", apiController.handleDeleteImage);
 
     app.use("/api", router);
 };
