@@ -132,7 +132,7 @@ let getCollectionByCode = (code) => {
             code: code,
         })
             .then(async (data) => {
-                console.log("Data from getCollectionByCode(): ", data);
+                // console.log("Data from getCollectionByCode(): ", data);
                 resolve({
                     result: true,
                     data: data,

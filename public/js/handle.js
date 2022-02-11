@@ -1,4 +1,4 @@
-var $files = null;
+// var files = null;
 $(document).ready(() => {
     // $("#btn_submit_code").click(() => {
     //     window.location.href = `/${$("#code").val()}`;
@@ -10,8 +10,10 @@ $(document).ready(() => {
         }
     });
 
-    $("#img_upload").on("change", function () {
-        $files = $(this).get(0).files;
+    $("#file-upload").on("change", function () {
+        // files = $(this).get(0).files;
+        let files = $(this).get(0).files;
+        // console.log(files);
     });
 
     $("#btn_show_modal_upload").click(() => {
@@ -20,102 +22,16 @@ $(document).ready(() => {
         ekUpload();
     });
 });
-
 let resetBoxUpload = () => {
-    $("#uploading").hide();
-
+    // $("#uploading").hide();
     document.getElementById("file-image").classList.add("hidden");
     document.getElementById("notimage").classList.remove("hidden");
     document.getElementById("start").classList.remove("hidden");
     document.getElementById("response").classList.add("hidden");
     document.getElementById("file-upload-form").reset();
 };
-
-let uploading = (percent) => {
-    $("#uploading").show();
-    $("#uploading").css("width", `${percent}%`);
-    $("#uploading").html(`${percent}%`);
-};
-
 // File Upload
-function fileDragHover(e) {
-    var fileDrag = document.getElementById("file-drag");
-
-    e.stopPropagation();
-    e.preventDefault();
-
-    fileDrag.className =
-        e.type === "dragover" ? "hover" : "modal-body file-upload";
-}
-
-async function fileSelectHandler(e) {
-    // Fetch FileList object
-    var files = e.target.files || e.dataTransfer.files;
-
-    // Cancel event and hover styling
-    fileDragHover(e);
-
-    // Process all File objects
-
-    for (var i = 0, f; (f = files[i]); i++) {
-        parseFile(f);
-        await uploadFile(f);
-    }
-    uploading(100);
-
-    setTimeout(() => {
-        window.location.href = `/${$("#current_code").val()}`;
-    }, 500);
-}
-
-// Output
-function output(msg) {
-    // Response
-    var m = document.getElementById("messages");
-    m.innerHTML = msg;
-}
-
-function parseFile(file) {
-    console.log(file.name);
-    output("<strong>" + encodeURI(file.name) + "</strong>");
-
-    // var fileType = file.type;
-    // console.log(fileType);
-    var imageName = file.name;
-
-    var isGood = /\.(?=gif|jpg|png|jpeg)/gi.test(imageName);
-    if (isGood) {
-        document.getElementById("start").classList.add("hidden");
-        document.getElementById("response").classList.remove("hidden");
-        document.getElementById("notimage").classList.add("hidden");
-        // Thumbnail Preview
-        document.getElementById("file-image").classList.remove("hidden");
-        document.getElementById("file-image").src = URL.createObjectURL(file);
-    } else {
-        document.getElementById("file-image").classList.add("hidden");
-        document.getElementById("notimage").classList.remove("hidden");
-        document.getElementById("start").classList.remove("hidden");
-        document.getElementById("response").classList.add("hidden");
-        document.getElementById("file-upload-form").reset();
-    }
-}
-
-// function setProgressMaxValue(e) {
-//     var pBar = document.getElementById("file-progress");
-
-//     if (e.lengthComputable) {
-//         pBar.max = e.total;
-//     }
-// }
-
-// function updateFileProgress(e) {
-//     var pBar = document.getElementById("file-progress");
-
-//     if (e.lengthComputable) {
-//         pBar.value = e.loaded;
-//     }
-// }
-
+//
 function ekUpload() {
     function Init() {
         console.log("Upload Initialised");
@@ -126,67 +42,200 @@ function ekUpload() {
 
         fileSelect.addEventListener("change", fileSelectHandler, false);
 
-        fileDrag.addEventListener("dragover", fileDragHover, false);
-        fileDrag.addEventListener("dragleave", fileDragHover, false);
-        fileDrag.addEventListener("drop", fileSelectHandler, false);
+        // Is XHR2 available?
+        var xhr = new XMLHttpRequest();
+        if (xhr.upload) {
+            // File Drop
+            fileDrag.addEventListener("dragover", fileDragHover, false);
+            fileDrag.addEventListener("dragleave", fileDragHover, false);
+            fileDrag.addEventListener("drop", fileSelectHandler, false);
+        }
     }
 
-    // // Check for the various File API support.
+    function fileDragHover(e) {
+        var fileDrag = document.getElementById("file-drag");
+
+        e.stopPropagation();
+        e.preventDefault();
+
+        fileDrag.className =
+            e.type === "dragover" ? "hover" : "modal-body file-upload";
+    }
+
+    function fileSelectHandler(e) {
+        // Fetch FileList object
+        var files = e.target.files || e.dataTransfer.files;
+
+        // Cancel event and hover styling
+        fileDragHover(e);
+
+        // Process all File objects
+        for (var i = 0, f; (f = files[i]); i++) {
+            parseFile(f);
+            uploadFile(f);
+        }
+    }
+
+    // Output
+    function output(msg) {
+        // Response
+        var m = document.getElementById("messages");
+        m.innerHTML = msg;
+    }
+
+    function parseFile(file) {
+        console.log(file.name);
+        output("<strong>" + encodeURI(file.name) + "</strong>");
+
+        // var fileType = file.type;
+        // console.log(fileType);
+        var imageName = file.name;
+
+        var isGood = /\.(?=gif|jpg|png|jpeg)/gi.test(imageName);
+        if (isGood) {
+            document.getElementById("start").classList.add("hidden");
+            document.getElementById("response").classList.remove("hidden");
+            document.getElementById("notimage").classList.add("hidden");
+            // Thumbnail Preview
+            document.getElementById("file-image").classList.remove("hidden");
+            document.getElementById("file-image").src =
+                URL.createObjectURL(file);
+        } else {
+            document.getElementById("file-image").classList.add("hidden");
+            document.getElementById("notimage").classList.remove("hidden");
+            document.getElementById("start").classList.remove("hidden");
+            document.getElementById("response").classList.add("hidden");
+            document.getElementById("file-upload-form").reset();
+        }
+    }
+
+    function setProgressMaxValue(e) {
+        var pBar = document.getElementById("file-progress");
+
+        if (e.lengthComputable) {
+            pBar.max = e.total;
+            // console.log("setProgressMaxValue: ", e);
+            return;
+        }
+
+        pBar.max = 100;
+    }
+
+    function updateFileProgress(e) {
+        // console.log("updateFileProgress: ", e);
+        let percentWait = (e.total * 15) / 100;
+        // console.log("percentWait: ", percentWait);
+        var pBar = document.getElementById("file-progress");
+
+        if (e.lengthComputable) {
+            pBar.value = e.loaded - percentWait;
+            // console.log(pBar.value, e.loaded);
+            return;
+        }
+
+        pBar.value = 100;
+    }
+
+    function uploadFile(file) {
+        var xhr = new XMLHttpRequest(),
+            fileInput = document.getElementById("class-roster-file"),
+            pBar = document.getElementById("file-progress"),
+            fileSizeLimit = 1024; // In MB
+        if (xhr.upload) {
+            // Check if file is less than x MB
+            if (file.size <= fileSizeLimit * 1024 * 1024) {
+                // Progress bar
+                pBar.style.display = "inline";
+                xhr.upload.addEventListener(
+                    "loadstart",
+                    setProgressMaxValue,
+                    false
+                );
+                xhr.upload.addEventListener(
+                    "loadstart",
+                    updateFileProgress,
+                    false
+                );
+
+                xhr.upload.addEventListener(
+                    "progress",
+                    setProgressMaxValue,
+                    false
+                );
+                xhr.upload.addEventListener(
+                    "progress",
+                    updateFileProgress,
+                    false
+                );
+
+                // File received / failed
+                xhr.onreadystatechange = function (e) {
+                    if (xhr.readyState === 4) {
+                        // Everything is good!
+                        // progress.className =
+                        //     xhr.status == 200 ? "success" : "failure";
+                        // document.location.reload(true);
+                    }
+                };
+
+                xhr.onload = function (e) {
+                    // console.log("DONE: ", xhr.status);
+                    if (xhr.status === 200) {
+                        // console.log(xhr.response);
+                        setProgressMaxValue(e);
+                        updateFileProgress(e);
+                        var obj = JSON.parse(xhr.response);
+
+                        let code = $("#current_code").val();
+                        let title = obj.data.id;
+                        let url = obj.data.link;
+                        // console.log("\n\n", code, title, url);
+                        uploadToFastImage(code, title, url);
+                    }
+                };
+
+                // Start upload
+                xhr.open("POST", "https://api.imgur.com/3/image");
+                // xhr.setRequestHeader("X-File-Name", file.name);
+                // xhr.setRequestHeader("X-File-Size", file.size);
+                xhr.setRequestHeader("Accept", "application/json");
+                xhr.setRequestHeader("Content-Type", "multipart/form-data");
+                xhr.setRequestHeader(
+                    "Authorization",
+                    "Client-ID 58f2ebf29687a0b"
+                );
+                xhr.send(file);
+            } else {
+                output(
+                    "Please upload a smaller file (< " + fileSizeLimit + " MB)."
+                );
+            }
+        }
+    }
+
+    // Check for the various File API support.
     if (window.File && window.FileList && window.FileReader) {
         Init();
     } else {
         document.getElementById("file-drag").style.display = "none";
     }
-}
 
-let uploadFile = async (file) => {
-    // output("Vui lòng đợi...");
-    console.log(file);
-    console.log("Đang upload hình ảnh lên imgur...");
-
-    var apiUrl = "https://api.imgur.com/3/image";
-    var apiKey = "58f2ebf29687a0b";
-    var settings = {
-        async: false,
-        crossDomain: true,
-        processData: false,
-        contentType: false,
-        type: "POST",
-        url: apiUrl,
-        headers: {
-            Authorization: "Client-ID " + apiKey,
-            Accept: "application/json",
-        },
-        mimeType: "multipart/form-data",
-    };
-    var formData = new FormData();
-    formData.append("image", file);
-    settings.data = formData;
-
-    $.ajax(settings).done(async (response) => {
-        console.log(response);
-        var obj = JSON.parse(response);
-
-        let code = $("#current_code").val();
-        let title = obj.data.id;
-        let url = obj.data.link;
-        console.log("\n\n", code, title, url);
-
-        await $.post("/api/upload-image", {
+    let uploadToFastImage = (code, title, url) => {
+        $.post("/api/upload-image", {
             code,
             title,
             url,
         })
             .done((data) => {
-                console.log(data);
+                // console.log(data);
                 if (data.status === 200) {
+                    output("Hoàn tất!<br/>Tải lại trang để cập nhật nội dung!");
                 }
             })
             .fail((err) => {
                 console.log(err);
                 output("Đã xảy ra lỗi!");
             });
-    });
-};
-
+    };
+}
 // ekUpload();
