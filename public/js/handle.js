@@ -1,8 +1,4 @@
-// var files = null;
 $(document).ready(() => {
-    // $("#btn_submit_code").click(() => {
-    //     window.location.href = `/${$("#code").val()}`;
-    // });
     $(".btn-search").click(() => {
         $(".input-search").css({
             width: "300px",
@@ -18,12 +14,6 @@ $(document).ready(() => {
         if (e.which === 13) {
             window.location.href = `/${$("#code").val()}`;
         }
-    });
-
-    $("#file-upload").on("change", function () {
-        // files = $(this).get(0).files;
-        let files = $(this).get(0).files;
-        // console.log(files);
     });
 
     $("#btn_show_modal_upload").click(() => {
@@ -78,9 +68,14 @@ function ekUpload() {
 
         // Cancel event and hover styling
         fileDragHover(e);
-
+        let limit = 4 * 1024 * 1024;
         // Process all File objects
         for (var i = 0, f; (f = files[i]); i++) {
+            if (f.size > limit) {
+                bootbox.alert("Kích cỡ ảnh quá lớn! Tối đa 4mb!");
+                // console.log("Kích cỡ ảnh quá lớn! Tối đa 4mb!");
+                continue;
+            }
             parseFile(f);
             uploadFile(f);
         }

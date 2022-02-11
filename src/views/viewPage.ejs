@@ -84,12 +84,12 @@
     <div class="container">
         <div class="main-container">
             <% images.map(item=> { %>
-                <div class="image-item">
+                <div class="image-item" id="item_<%- item.id %>">
                     <img src="<%- item.url %>" data-toggle="modal" data-target="#modal_view_detail"
                         data-title="<%- item.title %>" data-url="<%- item.url %>" class="img-thumb pointer">
 
                     <div class="image-name">
-                        <span>
+                        <span id="title_<%- item.id %>">
                             <%- item.title %>
                         </span>
                     </div>
@@ -100,9 +100,8 @@
                             <i class="bi bi-eye-fill" data-url="<%- item.url %>" data-title="<%- item.title %>"></i>
                         </button>
                         <button class="btn-edit" data-toggle="modal" data-target="#modal_edit" data-id="<%- item._id %>"
-                            data-url="<%- item.url %>" data-title="<%- item.title %>">
-                            <i class="bi bi-pencil-fill" data-id="<%- item._id %>" data-url="<%- item.url %>"
-                                data-title="<%- item.title %>">
+                            data-url="<%- item.url %>">
+                            <i class="bi bi-pencil-fill" data-id="<%- item._id %>" data-url="<%- item.url %>">
                             </i>
                         </button>
                         <button class="btn-delete" data-id="<%- item._id %>" data-title="<%- item.title %>">

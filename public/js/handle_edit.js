@@ -2,9 +2,11 @@ $(document).ready(() => {
     $(".btn-edit").click((e) => {
         e.preventDefault();
         let button = $(e.target);
-        let imageUrl = button.attr("data-url");
-        let imageTitle = button.attr("data-title");
+
         let imageId = button.attr("data-id");
+        let imageUrl = button.attr("data-url");
+        let imageTitle = $(`#title_${imageId}`).text().trim(); //button.attr("data-title");
+
         console.log(imageUrl, imageTitle, imageId);
 
         $("#img_title_edit").html(imageTitle);
@@ -33,13 +35,15 @@ let handleEditImageTitle = (imageId, imageTitle) => {
         .done((data) => {
             // console.log(data);
             if (data.status === 200) {
-                location.reload();
+                // location.reload();
+                $(`#title_${imageId}`).html(imageTitle);
+                showNotiModal("edit", true, "Cập nhật thành công!");
                 return;
             }
-            bootbox.alert("Đã xảy ra lỗi! Vui lòng thử lại sau!");
+            showNotiModal("edit", false, "Máy chủ gặp sự cố!");
         })
         .fail((err) => {
-            bootbox.alert("Đã xảy ra lỗi! Vui lòng thử lại sau!");
+            showNotiModal("edit", false, "Máy chủ gặp sự cố!");
             console.log(err);
         });
 };

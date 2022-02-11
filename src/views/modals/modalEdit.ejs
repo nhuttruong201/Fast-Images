@@ -11,10 +11,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-sm-5 mb-3">
-                            <img src="" id="img_edit">
-                        </div>
-                        <div class="col-sm-7">
+                        <div class="col-sm-7 mb-3">
                             <div class="form-group">
                                 <label>Tiêu đề hình ảnh</label>
                                 <textarea id="image_title_input" class="form-control"
@@ -25,14 +22,25 @@
                                     nhiên.</small>
                             </div>
                         </div>
+                        <div class="col-sm-5">
+                            <img src="" id="img_edit">
+                        </div>
                     </div>
                 </div>
+
+                <div>
+                    <div class="alert alert-success text-center font-weight-bolder mt-3 mb-0 " id="box_noti_modal_edit">
+                        <span id="icon_noti_modal_edit"></span>
+                        <span id="content_noti_modal_edit"></span>
+                    </div>
+                </div>
+
             </div>
             <div class="modal-footer justify-content-center">
                 <input type="text" id="image_edit_id" readonly hidden>
                 <button type="button" class="btn btn-sm btn-success" id="btn_update">
                     <i class="fas fa-magic"></i>
-                    Cập nhật hình ảnh
+                    Cập nhật
                 </button>
                 <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">
                     <i class="fas fa-times"></i>

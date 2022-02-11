@@ -90,9 +90,9 @@ a {
 .main-container {
     column-count: 5; /* Số cột */
     column-gap: 15px; /* Khoảng cách giữa các cột */
-
     margin-top: 15px;
     padding-bottom: 20px;
+    transition: 0.3s;
 }
 
 .image-item {
@@ -202,7 +202,8 @@ a {
     height: auto;
 }
 #box_noti_modal_security,
-#box_noti_modal_backup,
+#box_noti_modal_edit,
+/* #box_noti_modal_delete, */
 #box_noti_modal_share,
 #password {
     display: none;

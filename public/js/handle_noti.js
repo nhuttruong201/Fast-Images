@@ -11,10 +11,14 @@ let showNotiModal = (modalName, boolean, message) => {
         boxId += "security";
         iconId += "security";
         contentId += "security";
-    } else if (strModalName === "BACKUP") {
-        boxId += "backup";
-        iconId += "backup";
-        contentId += "backup";
+    } else if (strModalName === "EDIT") {
+        boxId += "edit";
+        iconId += "edit";
+        contentId += "edit";
+    } else if (strModalName === "DELETE") {
+        boxId += "delete";
+        iconId += "delete";
+        contentId += "delete";
     } else if (strModalName === "CHECKPASS") {
         boxId += "check_pass";
         iconId += "check_pass";

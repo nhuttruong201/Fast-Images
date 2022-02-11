@@ -6,8 +6,6 @@ $(document).ready(() => {
         let imageId = button.attr("data-id");
         let imageTitle = button.attr("data-title");
 
-        // console.log(imageId, imageTitle);
-
         bootbox.confirm({
             title: "Bạn có chắc xoá?",
             message: `<strong>${imageTitle}</strong> sẽ bị xoá vĩnh viễn, cân nhắc kĩ trước khi thực hiện.`,
@@ -22,7 +20,7 @@ $(document).ready(() => {
                 },
             },
             callback: function (result) {
-                console.log("This was logged in the callback: " + result);
+                // console.log("This was logged in the callback: " + result);
                 if (result) {
                     handleDeleteImage(imageId);
                 }
@@ -37,7 +35,9 @@ let handleDeleteImage = (_id) => {
     })
         .done((data) => {
             if (data.status === 200) {
-                location.reload();
+                // location.reload();
+                $(`#item_${_id}`).hide(200);
+                $(`#item_${_id}`).remove();
                 return;
             }
             bootbox.alert("Đã xảy ra lỗi! Vui lòng thử lại sau!");
