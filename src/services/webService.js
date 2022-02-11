@@ -123,10 +123,16 @@ let checkPass = (code, password) => {
 
 let getCollectionByCode = (code) => {
     return new Promise(async (resolve, reject) => {
+        let { exist } = await checkCollectionExist(code);
+        if (!exist) {
+            await createCollection(code);
+        }
+
         await CollectionModel.findOne({
             code: code,
         })
-            .then((data) => {
+            .then(async (data) => {
+                console.log("Data from getCollectionByCode(): ", data);
                 resolve({
                     result: true,
                     data: data,
