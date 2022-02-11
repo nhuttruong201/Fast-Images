@@ -90,6 +90,7 @@ a {
 .main-container {
     column-count: 5; /* Số cột */
     column-gap: 15px; /* Khoảng cách giữa các cột */
+
     margin-top: 15px;
     padding-bottom: 20px;
 }
@@ -210,8 +211,4 @@ a {
 #uploading {
     display: none;
     transition: 0.3s;
-}
-
-#img_upload {
-    height: 200px;
 }

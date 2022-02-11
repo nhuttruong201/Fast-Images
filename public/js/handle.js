@@ -3,6 +3,16 @@ $(document).ready(() => {
     // $("#btn_submit_code").click(() => {
     //     window.location.href = `/${$("#code").val()}`;
     // });
+    $(".btn-search").click(() => {
+        $(".input-search").css({
+            width: "300px",
+            "border-radius": "0px",
+            "background-color": "transparent",
+            "border-bottom": "1px solid rgba(255, 255, 255, 0.5)",
+            transition: "all 500ms cubic-bezier(0, 0.11, 0.35, 2)",
+            "-webkit-transition": "all 500ms cubic-bezier(0, 0.11, 0.35, 2)",
+        });
+    });
 
     $("#code").keypress((e) => {
         if (e.which === 13) {
@@ -123,12 +133,9 @@ function ekUpload() {
 
     function updateFileProgress(e) {
         // console.log("updateFileProgress: ", e);
-        let percentWait = (e.total * 15) / 100;
-        // console.log("percentWait: ", percentWait);
         var pBar = document.getElementById("file-progress");
-
         if (e.lengthComputable) {
-            pBar.value = e.loaded - percentWait;
+            pBar.value = e.loaded;
             // console.log(pBar.value, e.loaded);
             return;
         }
