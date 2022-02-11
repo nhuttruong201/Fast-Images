@@ -1,8 +1,8 @@
 var $files = null;
 $(document).ready(() => {
-    $("#btn_submit_code").click(() => {
-        window.location.href = `/${$("#code").val()}`;
-    });
+    // $("#btn_submit_code").click(() => {
+    //     window.location.href = `/${$("#code").val()}`;
+    // });
 
     $("#code").keypress((e) => {
         if (e.which === 13) {
