@@ -7,6 +7,7 @@ const router = express.Router();
 let initWebRoute = (app) => {
     router.get("/", (req, res) => {
         res.redirect("/" + randomId(5));
+        return;
     });
 
     router.get("/:code", webMiddleware.checkPass, webController.getViewPage);
