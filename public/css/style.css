@@ -206,3 +206,12 @@ a {
 #password {
     display: none;
 }
+
+#uploading {
+    display: none;
+    transition: 0.3s;
+}
+
+#img_upload {
+    height: 200px;
+}

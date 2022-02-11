@@ -5,7 +5,7 @@ let getViewPage = async (req, res) => {
     let password = req.password || null;
 
     let { result, data } = await webService.getCollectionByCode(code);
-    console.log("Check data from getViewPage(): ", data);
+    // console.log("Check data from getViewPage(): ", data);
 
     let { status, images } = await webService.getAllImagesByCode(code);
 

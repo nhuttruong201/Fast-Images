@@ -35,7 +35,8 @@
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/search_box.css">
-    <script src="/js/handle.js"></script>
+    <link rel="stylesheet" href="/css/upload.css">
+
 </head>
 
 <body>
@@ -64,7 +65,8 @@
     </div>
 
     <div class="box-controller">
-        <button class="btn btn-sm btn-success m-1" data-toggle="modal" data-target="#modal_upload">
+        <button class="btn btn-sm btn-success m-1" data-toggle="modal" data-target="#modal_upload"
+            id="btn_show_modal_upload">
             <i class="fas fa-plus-square"></i>
             Ảnh mới
         </button>
@@ -140,19 +142,21 @@
         });
     </script>
 
-    <script src="/js/handle_init.js"></script>
-    <script src="/js/handle_noti.js"></script>
-    <script src="/js/handle_view_detail.js"></script>
-    <script src="/js/handle_edit.js"></script>
-    <script src="/js/handle_delete.js"></script>
-    <script src="/js/handle_security.js"></script>
-    <script src="/js/handle_share.js"></script>
 
     <%- include("modals/modalUpload.ejs") %>
         <%- include("modals/modalViewDetail.ejs") %>
             <%- include("modals/modalEdit.ejs") %>
                 <%- include("modals/modalSecurity.ejs") %>
                     <%- include("modals/modalShare.ejs") %>
+
+                        <script src="/js/handle_init.js"></script>
+                        <script src="/js/handle_noti.js"></script>
+                        <script src="/js/handle_view_detail.js"></script>
+                        <script src="/js/handle_edit.js"></script>
+                        <script src="/js/handle_delete.js"></script>
+                        <script src="/js/handle_security.js"></script>
+                        <script src="/js/handle_share.js"></script>
+                        <script src="/js/handle.js"></script>
 
 </body>
 
