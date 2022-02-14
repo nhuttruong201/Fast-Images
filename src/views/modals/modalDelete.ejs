@@ -1,0 +1,29 @@
+<div class="modal fade" data-keyboard="false" data-backdrop="static" id="modal_delete">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <strong class="modal-title">
+                    Bạn có chắc xoá?
+                </strong>
+            </div>
+
+            <div class="modal-body">
+                <img src="/images/logo.png" alt="" id="image_view_delete">
+                <br>
+                <p><strong id="image_title_delete"></strong> sẽ bị xoá vĩnh viễn, cân nhắc kỹ trước khi thực hiện!</p>
+                <input type="text" id="image_id_delete" readonly hidden>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">
+                    <i class="fas fa-times"></i>
+                    Huỷ
+                </button>
+                <button type="button" class="btn btn-sm btn-danger" id="btn-submit-delete" data-dismiss="modal">
+                    <i class="fas fa-trash"></i>
+                    Chấp nhận xoá
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

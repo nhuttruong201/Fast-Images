@@ -6,12 +6,8 @@
     <meta charset="utf-8">
     <!-- Always force latest IE rendering engine or request Chrome Frame -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <!-- Thumb -->
-    <link rel="icon" href="/images/logo.png">
     <!-- Page Title -->
-    <title>
-        Fast Image - <%- code %>
-    </title>
+    <title>Demo FastImage Template</title>
     <!-- Meta Description -->
     <meta name="description" content="Blue One Page Creative HTML5 Template">
     <meta name="keywords"
@@ -19,7 +15,6 @@
     <meta name="author" content="Muhammad Morshed">
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 
     <!-- Google Font -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -46,20 +41,6 @@
     <!-- Modernizer Script for old Browsers -->
     <script src="/js/modernizr-2.6.2.min.js"></script>
 
-
-    <!-- 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
-
-
-
-    <!-- TODO my css -->
-    <link rel="stylesheet" href="/css/search_box.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/upload.css">
-
 </head>
 
 <body id="body">
@@ -84,27 +65,23 @@
                 <!-- /responsive nav button -->
 
                 <!-- logo -->
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="#body">
                     <h1 id="logo">
                         <img src="/images/logo.png" alt="Brandi">
                     </h1>
+                    <!-- Fast Image -->
                 </a>
-
                 <!-- /logo -->
             </div>
 
             <!-- main nav -->
             <nav class="collapse navbar-collapse navbar-right" role="navigation">
                 <ul id="nav" class="nav navbar-nav">
-                    <!-- <li class="current"><a href="#body">Home</a></li>
+                    <li class="current"><a href="#body">Home</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#works">Work</a></li>
-                    <li><a href="#team">Team</a></li> -->
-
-                    <li><a href="#collectionId">Bộ sưu tập của bạn</a></li>
-                    <li><a href="#">Liên hệ</a></li>
-                    <!-- <li><a href="#"></a></li> -->
-
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="http://google.com">Contact</a></li>
                 </ul>
             </nav>
             <!-- /main nav -->
@@ -113,17 +90,14 @@
 
     <section id="slider">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
             <!-- Indicators bullet -->
             <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
             </ol>
             <!-- End Indicators bullet -->
-
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-
                 <!-- single slide -->
                 <div class="item active" style="background-image: url(/images/banner.jpg); background-size: cover;">
                     <div class="carousel-caption">
@@ -176,9 +150,7 @@
             <div class="row">
 
                 <div class="sec-title text-center">
-                    <h2 id="collectionId">
-                        <%- code %>
-                    </h2>
+                    <h2>Collection ID</h2>
                     <div class="devider">
                         <!-- <i class="fa fa-heart-o fa-lg"></i> -->
                         <i class="far fa-heart"></i>
@@ -186,27 +158,15 @@
                 </div>
 
                 <div class="sec-sub-title text-center">
-
-                    <div class="box-search">
-                        <div class="search-box">
-                            <input type="text" id="current_code" value="<%- code %>" hidden readonly>
-                            <button class="btn-search"><i class="fas fa-search"></i></button>
-                            <input type="text" value="<%- code %>" id="code" class="input-search text-center"
-                                placeholder="mã bộ sưu tập...">
-                        </div>
-                    </div>
-
-
-                    <button class="btn btn-success" data-toggle="modal" data-target="#modal_upload"
-                        id="btn_show_modal_upload">
+                    <button class="btn btn-success">
                         <i class="fas fa-plus"></i>
                         Ảnh mới
                     </button>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal_share">
+                    <button class="btn btn-primary">
                         <i class="fas fa-share"></i>
                         Chia sẻ
                     </button>
-                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal_security">
+                    <button class="btn btn-danger">
                         <i class="fas fa-lock"></i>
                         Bảo mật
                     </button>
@@ -215,39 +175,106 @@
         </div>
 
         <div class="project-wrapper">
-
             <% images.forEach(item=> { %>
-                <figure class="mix work-item" id="item_<%- item._id %>">
+                <figure class="mix work-item branding">
                     <img src="<%- item.url %>" alt="">
                     <figcaption class="overlay">
-                        <a class="fancybox" rel="works" title="<%- item.title %>" href="<%- item.url %>">
+                        <a class="fancybox" rel="works" title="Write Your Image Caption Here" href="<%- item.url %>">
                             <i class="fas fa-eye"></i>
                         </a>
-                        <a class="btn-edit" data-id="<%- item._id %>" data-url="<%- item.url %>" data-toggle="modal"
-                            data-target="#modal_edit">
-                            <i class="fas fa-pen" data-id="<%- item._id %>" data-url="<%- item.url %>"></i>
+                        <a class="fancybox" rel="works">
+                            <i class="fas fa-pen"></i>
                         </a>
-                        <a class="btn-delete" data-id="<%- item._id %>" data-title="<%- item.title %>"
-                            data-url="<%- item.url %>" data-toggle="modal" data-target="#modal_delete">
-                            <i class="fas fa-trash" data-id="<%- item._id %>" data-title="<%- item.title %>"
-                                data-url="<%- item.url %>"></i>
+                        <a class="fancybox" rel="works">
+                            <i class="fas fa-trash"></i>
                         </a>
-                        <h4 id="title_<%- item._id %>">
+                        <h4>
                             <%- item.title %>
                         </h4>
-                        <p>
-                            <%- item.url %>
-                        </p>
+                        <p>Photography</p>
                     </figcaption>
                 </figure>
                 <% }) %>
+
+
+
+                    <figure class="mix work-item web">
+                        <img src="/images/works/item-2.jpg" alt="">
+                        <figcaption class="overlay">
+                            <a class="fancybox" rel="works" title="Write Your Image Caption Here"
+                                href="/images/works/item-2.jpg"><i class="fas fa-eye"></i></a>
+                            <h4>Labore et dolore magnam</h4>
+                            <p>Photography</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="mix work-item logo-design">
+                        <img src="/images/works/item-3.jpg" alt="">
+                        <figcaption class="overlay">
+                            <a class="fancybox" rel="works" title="Write Your Image Caption Here"
+                                href="/images/works/item-3.jpg"><i class="fas fa-eye"></i></a>
+                            <h4>Labore et dolore magnam</h4>
+                            <p>Photography</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="mix work-item photography">
+                        <img src="/images/works/item-4.jpg" alt="">
+                        <figcaption class="overlay">
+                            <a class="fancybox" rel="works" title="Write Your Image Caption Here"
+                                href="/images/works/item-4.jpg"><i class="fas fa-eye"></i></a>
+                            <h4>Labore et dolore magnam</h4>
+                            <p>Photography</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="mix work-item branding">
+                        <img src="/images/works/item-5.jpg" alt="">
+                        <figcaption class="overlay">
+                            <a class="fancybox" rel="works" title="Write Your Image Caption Here"
+                                href="/images/works/item-5.jpg"><i class="fas fa-eye"></i></a>
+                            <h4>Labore et dolore magnam</h4>
+                            <p>Photography</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="mix work-item web">
+                        <img src="/images/works/item-6.jpg" alt="">
+                        <figcaption class="overlay">
+                            <a class="fancybox" rel="works" title="Write Your Image Caption Here"
+                                href="/images/works/item-6.jpg"><i class="fas fa-eye"></i></a>
+                            <h4>Labore et dolore magnam</h4>
+                            <p>Photography</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="mix work-item logo-design">
+                        <img src="/images/works/item-7.jpg" alt="">
+                        <figcaption class="overlay">
+                            <a class="fancybox" rel="works" title="Write Your Image Caption Here"
+                                href="/images/works/item-7.jpg"><i class="fas fa-eye"></i></a>
+                            <h4>Labore et dolore magnam</h4>
+                            <p>Photography</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="mix work-item photography">
+                        <img src="/images/works/item-8.jpg" alt="">
+                        <figcaption class="overlay">
+                            <a class="fancybox" rel="works" title="Write Your Image Caption Here"
+                                href="/images/works/item-8.jpg"><i class="fas fa-eye"></i></a>
+                            <h4>Labore et dolore magnam</h4>
+                            <p>Photography</p>
+                        </figcaption>
+                    </figure>
+
         </div>
 
     </section>
 
 
 
-    <!-- <footer id="footer" class="footer">
+    <footer id="footer" class="footer">
         <div class="container">
             <div class="row">
 
@@ -307,19 +334,7 @@
                 </div>
             </div>
         </div>
-    </footer> -->
-
-
-    <!-- TODO store data -->
-    <input type="text" id="load_content_clipboard" hidden>
-    <input type="text" id="current_pass" value="<%- password %>" readonly hidden>
-    <input type="text" id="share_state" value="<%- isShared %>" readonly hidden>
-
-    <!-- <script>
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script> -->
+    </footer>
 
     <a href="javascript:void(0);" id="back-top" style="font-size: 30px;">
         <!-- <i class="fas fa-chevron-circle-up"></i> -->
@@ -348,7 +363,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
     <!-- Google Map -->
-    <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <!-- jquery easing -->
     <script src="/js/jquery.easing.min.js"></script>
     <!-- jquery easing -->
@@ -367,22 +382,62 @@
     <!-- Custom Functions -->
     <script src="/js/custom.js"></script>
 
-    <%- include("modals/modalUpload.ejs") %>
-        <%- include("modals/modalViewDetail.ejs") %>
-            <%- include("modals/modalEdit.ejs") %>
-                <%- include("modals/modalSecurity.ejs") %>
-                    <%- include("modals/modalShare.ejs") %>
-                        <%- include("modals/modalDelete.ejs") %>
+    <script type="text/javascript">
+        $(function () {
+            /* ========================================================================= */
+            /*	Contact Form
+            /* ========================================================================= */
 
-                            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-                            <script src="/js/handle_init.js"></script>
-                            <script src="/js/handle_noti.js"></script>
-                            <script src="/js/handle_view_detail.js"></script>
-                            <script src="/js/handle_edit.js"></script>
-                            <script src="/js/handle_delete.js"></script>
-                            <script src="/js/handle_security.js"></script>
-                            <script src="/js/handle_share.js"></script>
-                            <script src="/js/handle.js"></script>
+            $('#contact-form').validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    message: {
+                        required: true
+                    }
+                },
+                messages: {
+                    name: {
+                        required: "come on, you have a name don't you?",
+                        minlength: "your name must consist of at least 2 characters"
+                    },
+                    email: {
+                        required: "no email, no message"
+                    },
+                    message: {
+                        required: "um...yea, you have to write something to send this form.",
+                        minlength: "thats all? really?"
+                    }
+                },
+                submitHandler: function (form) {
+                    $(form).ajaxSubmit({
+                        type: "POST",
+                        data: $(form).serialize(),
+                        url: "process.php",
+                        success: function () {
+                            $('#contact-form :input').attr('disabled', 'disabled');
+                            $('#contact-form').fadeTo("slow", 0.15, function () {
+                                $(this).find(':input').attr('disabled', 'disabled');
+                                $(this).find('label').css('cursor', 'default');
+                                $('#success').fadeIn();
+                            });
+                        },
+                        error: function () {
+                            $('#contact-form').fadeTo("slow", 0.15, function () {
+                                $('#error').fadeIn();
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

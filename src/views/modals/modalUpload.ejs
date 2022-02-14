@@ -5,16 +5,14 @@
                 <strong class="modal-title"><i class="bi bi-upload"></i> Tải ảnh lên</strong>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <div class="modal-body px-5">
-                <div class="form-group mt-2">
+            <div class="modal-body">
+                <div class="form-group">
                     <form id="file-upload-form" class="uploader">
                         <input id="file-upload" type="file" name="fileUpload" accept="image/*" multiple />
-
                         <label for="file-upload" id="file-drag">
                             <img id="file-image" src="#" alt="Preview" class="hidden">
                             <div id="start">
                                 <i class="fa fa-download" aria-hidden="true"></i>
-                                <!-- <i class="fas fa-upload" aria-hidden="true"></i> -->
                                 <div>Chọn ảnh hoặc kéo thả vào đây</div>
                                 <div id="notimage" class="hidden"></div>
                                 <span id="file-upload-btn" class="btn btn-primary">Chọn ảnh</span>
@@ -26,15 +24,12 @@
                                 </progress>
                             </div>
                         </label>
-
                     </form>
                 </div>
-
-
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">
                     <i class="fas fa-times"></i>
                     Đóng
                 </button>

@@ -10,6 +10,12 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
+                    <div class="mb-3">
+                        <div class="alert alert-success text-center font-weight-bolder mb-0 " id="box_noti_modal_edit">
+                            <span id="icon_noti_modal_edit"></span>
+                            <span id="content_noti_modal_edit"></span>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-sm-7 mb-3">
                             <div class="form-group">
@@ -18,8 +24,9 @@
                                     placeholder="nhập tiêu đề hình ảnh..." aria-describedby="helpId"
                                     rows="2"></textarea>
 
-                                <small id="helpId" class="text-muted">Khi tải lên tiêu đề sẽ được đặt ngẫu
-                                    nhiên.</small>
+                                <small id="helpId" class="text-muted">
+                                    Khi tải lên tiêu đề sẽ được đặt ngẫu nhiên.
+                                </small>
                             </div>
                         </div>
                         <div class="col-sm-5">
@@ -28,21 +35,14 @@
                     </div>
                 </div>
 
-                <div>
-                    <div class="alert alert-success text-center font-weight-bolder mt-3 mb-0 " id="box_noti_modal_edit">
-                        <span id="icon_noti_modal_edit"></span>
-                        <span id="content_noti_modal_edit"></span>
-                    </div>
-                </div>
-
             </div>
             <div class="modal-footer justify-content-center">
                 <input type="text" id="image_edit_id" readonly hidden>
-                <button type="button" class="btn btn-sm btn-success" id="btn_update">
-                    <i class="fas fa-magic"></i>
+                <button type="button" class="btn btn-sm btn-primary" id="btn_update">
+                    <i class="fas fa-pen-square"></i>
                     Cập nhật
                 </button>
-                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">
                     <i class="fas fa-times"></i>
                     Đóng
                 </button>

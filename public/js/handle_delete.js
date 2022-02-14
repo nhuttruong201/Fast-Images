@@ -5,27 +5,39 @@ $(document).ready(() => {
 
         let imageId = button.attr("data-id");
         let imageTitle = button.attr("data-title");
+        let imageUrl = button.attr("data-url");
 
-        bootbox.confirm({
-            title: "Bạn có chắc xoá?",
-            message: `<strong>${imageTitle}</strong> sẽ bị xoá vĩnh viễn, cân nhắc kĩ trước khi thực hiện.`,
-            buttons: {
-                cancel: {
-                    label: '<i class="fa fa-times"></i> Huỷ',
-                    className: "btn btn-sm btn-secondary",
-                },
-                confirm: {
-                    label: '<i class="fas fa-trash"></i> Chấp nhận xoá',
-                    className: "btn btn-sm btn-danger",
-                },
-            },
-            callback: function (result) {
-                // console.log("This was logged in the callback: " + result);
-                if (result) {
-                    handleDeleteImage(imageId);
-                }
-            },
-        });
+        console.log(imageId, imageTitle);
+
+        $("#image_title_delete").html(imageTitle);
+        $("#image_id_delete").val(imageId);
+        $("#image_view_delete").attr("src", imageUrl);
+
+        // bootbox.confirm({
+        //     title: "Bạn có chắc xoá?",
+        //     message: `<strong>${imageTitle}</strong> sẽ bị xoá vĩnh viễn, cân nhắc kĩ trước khi thực hiện.`,
+        //     buttons: {
+        //         cancel: {
+        //             label: '<i class="fa fa-times"></i> Huỷ',
+        //             className: "btn btn-sm btn-secondary",
+        //         },
+        //         confirm: {
+        //             label: '<i class="fas fa-trash"></i> Chấp nhận xoá',
+        //             className: "btn btn-sm btn-danger",
+        //         },
+        //     },
+        //     callback: function (result) {
+        //         // console.log("This was logged in the callback: " + result);
+        //         if (result) {
+        //             handleDeleteImage(imageId);
+        //         }
+        //     },
+        // });
+    });
+
+    $("#btn-submit-delete").click(() => {
+        let imageDeleteId = $("#image_id_delete").val();
+        handleDeleteImage(imageDeleteId);
     });
 });
 

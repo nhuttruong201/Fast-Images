@@ -1,7 +1,7 @@
 import webService from "../services/webService";
 
 let getViewPage = async (req, res) => {
-    let code = req.params.code;
+    let code = String(req.params.code).toLowerCase();
     let password = req.password || null;
 
     let { result, data } = await webService.getCollectionByCode(code);
