@@ -110,7 +110,8 @@
 
 @media only screen and (max-width: 767px) {
     .navbar-brand {
-        padding-left: 15px;
+        padding-left: 20px;
+        padding-top: 8px;
     }
 
     .sec-sub-title p {

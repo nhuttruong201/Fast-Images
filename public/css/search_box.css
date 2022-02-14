@@ -8,6 +8,8 @@
     width: fit-content;
     height: fit-content;
     position: relative;
+    border-radius: 14px;
+    overflow: hidden;
 }
 .input-search {
     height: 50px;
@@ -17,11 +19,11 @@
     font-size: 18px;
     letter-spacing: 2px;
     outline: none;
-    border-radius: 25px;
+    border-radius: 50%;
     transition: all 0.5s ease-in-out;
-    background-color: #1ea78d;
+    background-color: #1ea78d !important;
     padding-right: 40px;
-    color: #1ea78d;
+    color: #fff;
     text-transform: lowercase;
 }
 .input-search::placeholder {
@@ -47,21 +49,22 @@
 }
 
 .btn-search:focus ~ .input-search {
-    width: 300px;
+    width: 340px;
     border-radius: 12px;
-    color: #ffffff;
-    background-color: #1ea78d;
-    /* background-color: #454cad; */
-    /* border-bottom: 1px solid rgba(255, 255, 255, 0.5); */
-    /* border-bottom: 1px solid #1ea78d; */
     transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
     -webkit-transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
 
 .input-search:focus {
-    color: #ffffff;
-    width: 300px;
+    width: 340px;
     border-radius: 6px;
     transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
     -webkit-transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+
+/* TODO md */
+@media screen and (max-width: 768px) {
+}
+/* TODO sm */
+@media screen and (max-width: 576px) {
 }
