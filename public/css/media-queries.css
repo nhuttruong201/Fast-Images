@@ -109,6 +109,14 @@
 ==============================================================*/
 
 @media only screen and (max-width: 767px) {
+    .navbar-nav li a.current,
+    .navbar-nav li a:focus,
+    .navbar-nav li a:hover {
+        background-color: transparent;
+        border-top: 1px solid transparent;
+        color: #fff;
+    }
+
     .navbar-brand {
         padding-left: 20px;
         padding-top: 8px;
@@ -159,8 +167,13 @@
     /* works */
 
     .work-item {
-        left: 5% !important;
-        width: 90%;
+        /* left: 5% !important; */
+        width: 100%;
+    }
+
+    /* view image */
+    .fancybox-overlay {
+        background-color: rgba(0, 0, 0, 0.8);
     }
 
     /* team */

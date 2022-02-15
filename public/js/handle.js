@@ -16,6 +16,10 @@ $(document).ready(() => {
         }
     });
 
+    $("#btn_call_upload").click(() => {
+        $("#btn_show_modal_upload").click();
+    });
+
     $("#btn_show_modal_upload").click(() => {
         // alert("btn_show_modal_upload");
         resetBoxUpload();

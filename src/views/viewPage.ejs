@@ -45,12 +45,7 @@
     <link rel="stylesheet" href="/css/media-queries.css">
 
     <!-- Modernizer Script for old Browsers -->
-    <!-- <script src="/js/modernizr-2.6.2.min.js"></script> -->
-    <!-- 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="/js/modernizr-2.6.2.min.js"></script>
 
 
     <!-- TODO my css -->
@@ -58,6 +53,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/upload.css">
     <link rel="stylesheet" href="/css/my_bootstrap.css">
+    <link rel="stylesheet" href="/css/button.css">
 
 </head>
 
@@ -95,14 +91,10 @@
             <!-- main nav -->
             <nav class="collapse navbar-collapse navbar-right" role="navigation">
                 <ul id="nav" class="nav navbar-nav">
-                    <!-- <li class="current"><a href="#body">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#works">Work</a></li>
-                    <li><a href="#team">Team</a></li> -->
-
                     <li><a href="#collectionId">Bộ sưu tập</a></li>
-                    <li><a href="#">Tải ảnh lên</a></li>
-
+                    <li><a href="#" id="btn_call_upload">Tải ảnh lên</a></li>
+                    <li><a href="#">Chia sẻ</a></li>
+                    <li><a href="#">Bảo mật</a></li>
                 </ul>
             </nav>
             <!-- /main nav -->
@@ -127,8 +119,12 @@
                     <div class="carousel-caption">
                         <h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">
                             Fast<span> Image</span></h2>
-                        <h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color">Lưu trữ hình
-                                ảnh</span> một cách nhanh chóng</h3>
+                        <h3 data-wow-duration="1000ms" class="wow slideInLeft animated">
+                            <span class="color">
+                                Lưu trữ hình ảnh
+                            </span>
+                            một cách nhanh chóng
+                        </h3>
                         <!-- <p data-wow-duration="1000ms" class="wow slideInRight animated">
                             Tôi là Võ Nhựt Trường
                         </p> -->
@@ -147,21 +143,24 @@
                 <div class="item" style="background-image: url(/images/banner.jpg);">
                     <div class="carousel-caption">
                         <h2 data-wow-duration="500ms" data-wow-delay="500ms" class="wow bounceInDown animated">
-                            Meet<span> Team</span>!</h2>
-                        <h3 data-wow-duration="500ms" class="wow slideInLeft animated"><span
-                                class="color">/creative</span> one page template.</h3>
-                        <p data-wow-duration="500ms" class="wow slideInRight animated">We are a team of professionals
+                            Thử<span> Ngay</span>!</h2>
+                        <h3 data-wow-duration="500ms" class="wow slideInLeft animated"><span class="color">/tạo</span>
+                            bộ sưu tập ngay hôm nay.</h3>
+                        <p data-wow-duration="500ms" class="wow slideInRight animated">
+                            tất cả miễn phí
                         </p>
 
-                        <ul class="social-links text-center">
+                        <!-- <ul class="social-links text-center">
                             <li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
                             <li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
                             <li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
                             <li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
                 <!-- end single slide -->
+
+
 
             </div>
             <!-- End Wrapper for slides -->
@@ -178,13 +177,11 @@
                         <%- code %>
                     </h2>
                     <div class="devider">
-                        <!-- <i class="fa fa-heart-o fa-lg"></i> -->
                         <i class="far fa-heart"></i>
                     </div>
                 </div>
 
                 <div class="sec-sub-title text-center">
-
                     <div class="box-search">
                         <div class="search-box">
                             <input type="text" id="current_code" value="<%- code %>" hidden readonly>
@@ -194,19 +191,19 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-success" data-toggle="modal" data-target="#modal_upload"
-                        id="btn_show_modal_upload">
+                    <div class="btn-1" data-toggle="modal" data-target="#modal_upload" id="btn_show_modal_upload">
                         <i class="fas fa-plus"></i>
-                        Ảnh mới
-                    </button>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal_share">
+                        Tải lên
+                    </div>
+
+                    <div class="btn-2" data-toggle="modal" data-target="#modal_share">
                         <i class="fas fa-share"></i>
                         Chia sẻ
-                    </button>
-                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal_security">
+                    </div>
+                    <div class="btn-4" data-toggle="modal" data-target="#modal_security">
                         <i class="fas fa-lock"></i>
                         Bảo mật
-                    </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -220,11 +217,11 @@
                         <a class="fancybox" rel="works" title="<%- item.title %>" href="<%- item.url %>">
                             <i class="fas fa-eye"></i>
                         </a>
-                        <a class="btn-edit" data-id="<%- item._id %>" data-url="<%- item.url %>" data-toggle="modal"
-                            data-target="#modal_edit">
+                        <a class="btn-edit pointer" data-id="<%- item._id %>" data-url="<%- item.url %>"
+                            data-toggle="modal" data-target="#modal_edit">
                             <i class="fas fa-pen" data-id="<%- item._id %>" data-url="<%- item.url %>"></i>
                         </a>
-                        <a class="btn-delete" data-id="<%- item._id %>" data-title="<%- item.title %>"
+                        <a class="btn-delete pointer" data-id="<%- item._id %>" data-title="<%- item.title %>"
                             data-url="<%- item.url %>" data-toggle="modal" data-target="#modal_delete">
                             <i class="fas fa-trash" data-id="<%- item._id %>" data-title="<%- item.title %>"
                                 data-url="<%- item.url %>"></i>
