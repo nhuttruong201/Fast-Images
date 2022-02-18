@@ -43,6 +43,8 @@
     <link rel="stylesheet" href="/css/main.css">
     <!-- media-queries -->
     <link rel="stylesheet" href="/css/media-queries.css">
+    <!-- custom switch -->
+    <link rel="stylesheet" href="/css/custom_switch.css">
 
     <!-- Modernizer Script for old Browsers -->
     <script src="/js/modernizr-2.6.2.min.js"></script>
@@ -94,7 +96,8 @@
                     <li><a href="#collectionId">Bộ sưu tập</a></li>
                     <li><a href="#" id="btn_call_upload">Tải ảnh lên</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#modal_share">Chia sẻ</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#modal_security">Bảo mật</a></li>
+                    <li><a href="#" id="btn_call_security">Bảo mật</a>
+                    </li>
                 </ul>
             </nav>
             <!-- /main nav -->
@@ -144,10 +147,12 @@
                     <div class="carousel-caption">
                         <h2 data-wow-duration="500ms" data-wow-delay="500ms" class="wow bounceInDown animated">
                             Thử<span> Ngay</span>!</h2>
-                        <h3 data-wow-duration="500ms" class="wow slideInLeft animated"><span class="color">/tạo</span>
-                            bộ sưu tập ngay hôm nay.</h3>
+                        <h3 data-wow-duration="500ms" class="wow slideInLeft animated">
+                            <span class="color">tạo bộ sưu tập</span>
+                            ngay hôm nay.
+                        </h3>
                         <p data-wow-duration="500ms" class="wow slideInRight animated">
-                            tất cả miễn phí
+                            miễn phí
                         </p>
 
                         <!-- <ul class="social-links text-center">
@@ -200,7 +205,7 @@
                         <i class="fas fa-share"></i>
                         Chia sẻ
                     </div>
-                    <div class="btn-4" data-toggle="modal" data-target="#modal_security">
+                    <div class="btn-4" data-toggle="modal" data-target="#modal_security" id="btn_toggle_security">
                         <i class="fas fa-lock"></i>
                         Bảo mật
                     </div>
@@ -241,52 +246,39 @@
 
 
 
-    <!-- <footer id="footer" class="footer">
+    <footer id="footer" class="footer">
         <div class="container">
             <div class="row">
 
-                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms">
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms">
                     <div class="footer-single">
-                        <img src="/images/footer-logo.png" alt="">
-                        <p>eusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <img src="/images/logo.png" alt="" height="50" width="50">
+                        <p>
+                            Fast Image là tiện ích lưu trữ hình ảnh trực tuyến đơn giản và nhanh chóng. Bạn cũng có thể
+                            đặt mật khẩu bảo mật cho bộ sưu tập hoặc chia sẻ bộ sưu tập cho ai đó một cách dễ dàng.
+                        </p>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms"
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms"
                     data-wow-delay="300ms">
                     <div class="footer-single">
-                        <h6>Subscribe </h6>
-                        <form action="#" class="subscribe">
-                            <input type="text" name="subscribe" id="subscribe">
-                            <input type="submit" value="&#8594;" id="subs">
-                        </form>
-                        <p>eusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                        <h6>Về tôi </h6>
+                        <a href="https://www.facebook.com/nhuttruongvo201/">
+                            <img src="/images/nhuttruong.jpg" alt="" height="auto" width="100%"
+                                style="border-radius: 3px;">
+                        </a>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms"
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms"
                     data-wow-delay="600ms">
                     <div class="footer-single">
-                        <h6>Explore</h6>
+                        <h6>Khám phá</h6>
                         <ul>
-                            <li><a href="#">Inside Us</a></li>
-                            <li><a href="#">Flickr</a></li>
-                            <li><a href="#">Google</a></li>
-                            <li><a href="#">Forum</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms"
-                    data-wow-delay="900ms">
-                    <div class="footer-single">
-                        <h6>Support</h6>
-                        <ul>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Market Blog</a></li>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Pressroom</a></li>
+                            <li><a href="/">Fast Image</a></li>
+                            <li><a href="https://fnotevn.herokuapp.com/">Fast Note</a></li>
+                            <li><a href="https://fastchatvn.herokuapp.com/">Fast Chat</a></li>
                         </ul>
                     </div>
                 </div>
@@ -295,13 +287,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <p class="copyright text-center">
-                        Copyright © 2015 <a href="http://themefisher.com/">Themefisher</a>. All rights reserved.
-                        Designed & developed by <a href="http://themefisher.com/">Themefisher</a>
+                        Copyright © <span id="show_year_footer"></span>
+                        <a href="https://www.facebook.com/nhuttruongvo201/">Nhut Truong</a>.
+                        All rights reserved. Designed & developed by
+                        <a href="https://www.facebook.com/nhuttruongvo201/">Nhut Truong</a>
                     </p>
                 </div>
             </div>
         </div>
-    </footer> -->
+    </footer>
 
 
     <!-- TODO store data -->
@@ -309,15 +303,11 @@
     <input type="text" id="current_pass" value="<%- password %>" readonly hidden>
     <input type="text" id="share_state" value="<%- isShared %>" readonly hidden>
 
-    <!-- <script>
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script> -->
 
-    <a href="javascript:void(0);" id="back-top" style="font-size: 30px;">
-        <!-- <i class="fas fa-chevron-circle-up"></i> -->
-        <i class="fas fa-arrow-circle-up"></i>
+
+    <a href="javascript:void(0);" id="back-top"
+        style="font-size: 30px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; border-radius: 50%; color: #454cad;">
+        <i class="fas fa-chevron-circle-up"></i>
     </a>
 
     <!-- Essential jQuery Plugins
@@ -360,6 +350,14 @@
     </script>
     <!-- Custom Functions -->
     <script src="/js/custom.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#show_year_footer").html(new Date().getFullYear());
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 
     <%- include("modals/modalUpload.ejs") %>
         <%- include("modals/modalViewDetail.ejs") %>
