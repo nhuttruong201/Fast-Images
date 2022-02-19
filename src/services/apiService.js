@@ -113,7 +113,7 @@ let updateShareState = (code, password, state) => {
             }
         )
             .then((data) => {
-                console.log("Data from updateShareState(): ", data);
+                // console.log("Data from updateShareState(): ", data);
 
                 if (data.modifiedCount === 0) {
                     resolve({

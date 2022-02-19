@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <!-- meta charec set -->
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- Thumb -->
+    <link rel="icon" href="/images/logo.png">
+    <!-- Page Title -->
+    <title>
+        <%- title %>
+    </title>
+    <!-- Meta Description -->
+    <meta name="description" content="Tiện ích lưu trữ hình ảnh trực tuyến">
+    <meta name="keywords" content="fast, fast image, fastimg, hình ảnh, lưu trữ, trực tuyến">
+    <meta name="author" content="Vo Nhut Truong">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <!-- CSS
+		================================================== -->
+    <!-- Fontawesome Icon font -->
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <!-- Twitter Bootstrap css -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- jquery.fancybox  -->
+    <link rel="stylesheet" href="/css/jquery.fancybox.css">
+    <!-- animate -->
+    <link rel="stylesheet" href="/css/animate.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- media-queries -->
+    <link rel="stylesheet" href="/css/media-queries.css">
+    <!-- custom switch -->
+    <link rel="stylesheet" href="/css/custom_switch.css">
+
+    <!-- Modernizer Script for old Browsers -->
+    <script src="/js/modernizr-2.6.2.min.js"></script>
+
+
+    <!-- TODO my css -->
+    <link rel="stylesheet" href="/css/search_box.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/upload.css">
+    <link rel="stylesheet" href="/css/my_bootstrap.css">
+    <link rel="stylesheet" href="/css/button.css">
+
+</head>
+
+<body id="body">
+
+    <!-- preloader -->
+    <div id="preloader">
+        <img src="/images/preloader.gif" alt="Preloader">
+    </div>
+    <!-- end preloader -->
+
+    <!-- 
+        Fixed Navigation
+        ==================================== -->
+    <header id="navigation" class="navbar-fixed-top navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- responsive nav button -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars fa-2x"></i>
+                </button>
+                <!-- /responsive nav button -->
+
+                <!-- logo -->
+                <a class="navbar-brand" href="/">
+                    <h1 id="logo">
+                        <img src="/images/logo.png" alt="Brandi">
+                    </h1>
+                </a>
+
+                <!-- /logo -->
+            </div>
+
+            <!-- main nav -->
+            <nav class="collapse navbar-collapse navbar-right" role="navigation">
+                <ul id="nav" class="nav navbar-nav">
+                    <li><a href="#collectionId">Bộ sưu tập</a></li>
+                    <% if(pageRender==="viewPage" ){ %>
+                        <li><a href="#" id="btn_call_upload">Tải ảnh lên</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#modal_share">Chia sẻ</a></li>
+                        <li><a href="#" id="btn_call_security">Bảo mật</a></li>
+                        <% } %>
+                </ul>
+            </nav>
+            <!-- /main nav -->
+        </div>
+    </header>
+
+    <section id="slider">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators bullet -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            </ol>
+            <!-- End Indicators bullet -->
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+
+                <!-- single slide -->
+                <div class="item active" style="background-image: url(/images/banner.jpg); background-size: cover;">
+                    <div class="carousel-caption">
+                        <h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">
+                            Fast<span> Image</span></h2>
+                        <h3 data-wow-duration="1000ms" class="wow slideInLeft animated">
+                            <span class="color">
+                                Lưu trữ hình ảnh
+                            </span>
+                            một cách nhanh chóng
+                        </h3>
+                        <!-- <p data-wow-duration="1000ms" class="wow slideInRight animated">
+                            mô tả thêm ...
+                        </p> -->
+
+                        <!-- <ul class="social-links text-center">
+                            <li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
+                            <li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
+                            <li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li>
+                        </ul> -->
+                    </div>
+                </div>
+                <!-- end single slide -->
+
+                <!-- single slide -->
+                <div class="item" style="background-image: url(/images/banner.jpg);">
+                    <div class="carousel-caption">
+                        <h2 data-wow-duration="500ms" data-wow-delay="500ms" class="wow bounceInDown animated">
+                            Thử<span> Ngay</span>!</h2>
+                        <h3 data-wow-duration="500ms" class="wow slideInLeft animated">
+                            <span class="color">tạo bộ sưu tập</span>
+                            ngay hôm nay.
+                        </h3>
+                        <p data-wow-duration="500ms" class="wow slideInRight animated">
+                            miễn phí
+                        </p>
+
+                        <!-- <ul class="social-links text-center">
+                            <li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
+                            <li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
+                            <li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li>
+                        </ul> -->
+                    </div>
+                </div>
+                <!-- end single slide -->
+
+
+
+            </div>
+            <!-- End Wrapper for slides -->
+        </div>
+    </section>
+
+
+    <section id="works" class="works clearfix">
+        <!-- TODO Include -->
+        <%- include(pageRender) %>
+    </section>
+
+    <div class="sec-title text-center">
+        <div class="devider">
+            THE <i class="far fa-heart"></i> END
+        </div>
+        <br>
+    </div>
+
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms">
+                    <div class="footer-single">
+                        <img src="/images/logo.png" alt="" height="50" width="50">
+                        <p>
+                            Fast Image là tiện ích lưu trữ hình ảnh trực tuyến đơn giản và nhanh chóng. Bạn cũng có thể
+                            đặt mật khẩu bảo mật cho bộ sưu tập hoặc chia sẻ bộ sưu tập cho ai đó một cách dễ dàng.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms"
+                    data-wow-delay="300ms">
+                    <div class="footer-single">
+                        <h6>Về tôi </h6>
+                        <a href="https://www.facebook.com/nhuttruongvo201/">
+                            <img src="/images/nhuttruong.jpg" alt="" height="auto" width="100%"
+                                style="border-radius: 3px;">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms"
+                    data-wow-delay="600ms">
+                    <div class="footer-single">
+                        <h6>Khám phá</h6>
+                        <ul>
+                            <li><a href="/">Fast Image</a></li>
+                            <li><a href="https://fnotevn.herokuapp.com/">Fast Note</a></li>
+                            <li><a href="https://fastchatvn.herokuapp.com/">Fast Chat</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="copyright text-center">
+                        Copyright © <span id="show_year_footer"></span>
+                        <a href="https://www.facebook.com/nhuttruongvo201/">Nhut Truong</a>.
+                        All rights reserved. Designed & developed by
+                        <a href="https://www.facebook.com/nhuttruongvo201/">Nhut Truong</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- TODO store data -->
+    <input type="text" id="load_content_clipboard" hidden>
+    <input type="text" id="current_pass" value="<%- password %>" readonly hidden>
+    <input type="text" id="share_state" value="<%- isShared %>" readonly hidden>
+
+
+
+    <a href="javascript:void(0);" id="back-top"
+        style="font-size: 20px; border-radius: 50%; background-color: #062033; padding: 12px;">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- Essential jQuery Plugins
+		================================================== -->
+    <!-- Main jQuery -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <!-- Single Page Nav -->
+    <script src="/js/jquery.singlePageNav.min.js"></script>
+    <!-- Twitter Bootstrap -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- jquery.fancybox.pack -->
+    <script src="/js/jquery.fancybox.pack.js"></script>
+    <!-- jquery.mixitup.min -->
+    <script src="/js/jquery.mixitup.min.js"></script>
+    <!-- jquery.parallax -->
+    <script src="/js/jquery.parallax-1.1.3.js"></script>
+    <!-- jquery.countTo -->
+    <script src="/js/jquery-countTo.js"></script>
+    <!-- jquery.appear -->
+    <script src="/js/jquery.appear.js"></script>
+    <!-- Contact form validation -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
+    <!-- Google Map -->
+    <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
+    <!-- jquery easing -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <!-- jquery easing -->
+    <script src="/js/wow.min.js"></script>
+    <script>
+        var wow = new WOW({
+            boxClass: 'wow',      // animated element css class (default is wow)
+            animateClass: 'animated', // animation css class (default is animated)
+            offset: 120,          // distance to the element when triggering the animation (default is 0)
+            mobile: false,       // trigger animations on mobile devices (default is true)
+            live: true        // act on asynchronously loaded content (default is true)
+        }
+        );
+        wow.init();
+    </script>
+    <!-- Custom Functions -->
+    <script src="/js/custom.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#show_year_footer").html(new Date().getFullYear());
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+    <%- include("modals/modalUpload.ejs") %>
+        <%- include("modals/modalEdit.ejs") %>
+            <%- include("modals/modalSecurity.ejs") %>
+                <%- include("modals/modalShare.ejs") %>
+                    <%- include("modals/modalDelete.ejs") %>
+
+                        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+                        <script src="/js/handle_init.js"></script>
+                        <script src="/js/handle_noti.js"></script>
+                        <script src="/js/handle_edit.js"></script>
+                        <script src="/js/handle_delete.js"></script>
+                        <script src="/js/handle_security.js"></script>
+                        <script src="/js/handle_share.js"></script>
+                        <script src="/js/handle.js"></script>
+</body>
+
+</html>

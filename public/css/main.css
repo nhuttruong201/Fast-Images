@@ -142,6 +142,8 @@ body > section,
     left: 47%;
     position: absolute;
     top: 48%;
+    max-height: 50px;
+    max-width: 50px;
 }
 
 /*=========================================

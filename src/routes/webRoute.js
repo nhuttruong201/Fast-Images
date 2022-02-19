@@ -13,11 +13,7 @@ let initWebRoute = (app) => {
     router.get("/:code", webMiddleware.checkPass, webController.getViewPage);
     router.post("/:code", webController.handleCheckPass);
 
-    router.get(
-        "/share/:code",
-        webMiddleware.checkPass,
-        webController.getSharePage
-    );
+    router.get("/share/:code", webController.getSharePage);
 
     app.use("/", router);
 };
