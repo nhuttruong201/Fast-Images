@@ -80,7 +80,7 @@ let updatePass = (code, currentPassword, newPassword) => {
             }
         )
             .then((data) => {
-                console.log("Data from updatePass(): ", data);
+                // console.log("Data from updatePass(): ", data);
 
                 if (data.modifiedCount === 0) {
                     resolve({
