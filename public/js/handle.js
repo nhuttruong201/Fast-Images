@@ -242,6 +242,9 @@ function ekUpload() {
                 console.log(err);
                 output("Đã xảy ra lỗi!");
             });
+
+        // clear input file
+        $("#file-upload").val("");
     };
 }
 // ekUpload();
