@@ -235,7 +235,7 @@ function ekUpload() {
             .done((data) => {
                 // console.log(data);
                 if (data.status === 200) {
-                    // output("Hoàn tất!<br/>Tải lại trang để cập nhật nội dung!");
+                    output("Hoàn tất!<br/>Đang tải lại trang!");
                     location.reload();
                 }
             })
