@@ -37,6 +37,8 @@ let handleEditImageTitle = (imageId, imageTitle) => {
             if (data.status === 200) {
                 // location.reload();
                 $(`#title_${imageId}`).html(imageTitle);
+                $(`#fancybox_${imageId}`).attr("title", imageTitle);
+
                 showNotiModal("edit", true, "Cập nhật thành công!");
                 return;
             }

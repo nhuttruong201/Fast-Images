@@ -43,7 +43,8 @@
         <figure class="mix work-item" id="item_<%- item._id %>">
             <img src="<%- item.url %>" alt="">
             <figcaption class="overlay">
-                <a class="fancybox" rel="works" title="<%- item.title %>" href="<%- item.url %>">
+                <a id="fancybox_<%- item._id %>" class="fancybox" rel="works" title="<%- item.title %>"
+                    href="<%- item.url %>">
                     <i class="fas fa-eye"></i>
                 </a>
                 <a class="btn-edit pointer" data-id="<%- item._id %>" data-url="<%- item.url %>" data-toggle="modal"
